@@ -11,6 +11,8 @@ import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Accueil from "./views/Enchere/Accueil";
+import Inscription from "./views/Enchere/Inscription";
+import Login from "./views/Enchere/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -35,6 +37,16 @@ root.render(
       <Route
           path="/accueil"
           render={(props) => <Accueil {...props} />}
+      />
+
+      <Route
+          path="/inscription"
+          render={(props) => <Inscription {...props} />}
+      />
+
+      <Route
+          path="/login"
+          render={(props) => <Login {...props} />}
       />
 
 
