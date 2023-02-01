@@ -70,21 +70,33 @@ export default function Login() {
         );
     };
 
-    const inscription = async () => {
+    const login = async () => {
+
         const params = {
-            nom: nom,
             email: email,
-            motDePasse: pwd,
-            contact: contact
+            mdp: pwd,
         };
 
+
         try {
-            const response = await axios.post(`${API_URL}/utilisateurs`, {}, {params});
+            console.log(email);
+            const response = await axios.post(`https://wsenchere.up.railway.app/Admin`, {}, { params });
             if (response.status === 200) {
                 console.log(response.data);
-                history.push(`/login`);
+                const data = response.data;
+
+                if(response.data.code === 202){
+                    history.push(`/encheres`);
+                }
+                if(response.data.code === 404){
+                    history.push(`/login`);
+
+                }
+            }else{
+                console.log("Loading");
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.log(error);
         }
     };
@@ -121,24 +133,6 @@ export default function Login() {
                                             <Form className="form">
                                                 <InputGroup
                                                     className={classnames({
-                                                        "input-group-focus": fullNameFocus
-                                                    })}
-                                                >
-                                                    <InputGroupAddon addonType="prepend">
-                                                        <InputGroupText>
-                                                            <i className="tim-icons icon-single-02"/>
-                                                        </InputGroupText>
-                                                    </InputGroupAddon>
-                                                    <Input
-                                                        onChange={(e) => setNom(e.target.value)}
-                                                        placeholder="Nom"
-                                                        type="text"
-                                                        onFocus={(e) => setFullNameFocus(true)}
-                                                        onBlur={(e) => setFullNameFocus(false)}
-                                                    />
-                                                </InputGroup>
-                                                <InputGroup
-                                                    className={classnames({
                                                         "input-group-focus": emailFocus
                                                     })}
                                                 >
@@ -157,24 +151,6 @@ export default function Login() {
                                                     />
                                                 </InputGroup>
 
-                                                <InputGroup
-                                                    className={classnames({
-                                                        "input-group-focus": contactFocus
-                                                    })}
-                                                >
-                                                    <InputGroupAddon addonType="prepend">
-                                                        <InputGroupText>
-                                                            <i className="tim-icons icon-mobile"/>
-                                                        </InputGroupText>
-                                                    </InputGroupAddon>
-                                                    <Input
-                                                        onChange={(e) => setContact(e.target.value)}
-                                                        placeholder="Contact"
-                                                        type="text"
-                                                        onFocus={(e) => setContactFocus(true)}
-                                                        onBlur={(e) => setContactFocus(false)}
-                                                    />
-                                                </InputGroup>
 
                                                 <InputGroup
                                                     className={classnames({
@@ -220,7 +196,7 @@ export default function Login() {
 
                                         <CardFooter>
                                             <Button className="btn-round" color="primary" size="lg"
-                                                    onClick={(e) => e.preventDefault()}>
+                                                    onClick={() => login()}>
                                                 Se Connecter
                                             </Button>
                                         </CardFooter>
