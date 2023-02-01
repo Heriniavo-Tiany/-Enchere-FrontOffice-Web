@@ -13,6 +13,7 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import Accueil from "./views/Enchere/Accueil";
 import Inscription from "./views/Enchere/Inscription";
 import Login from "./views/Enchere/Login";
+import Recharger from "./views/Enchere/Recharger";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -49,6 +50,10 @@ root.render(
           render={(props) => <Login {...props} />}
       />
 
+      <Route
+          path="/recharger"
+          render={(props) => <Recharger {...props} />}
+      />
 
       <Redirect from="/" to="/accueil" />
     </Switch>

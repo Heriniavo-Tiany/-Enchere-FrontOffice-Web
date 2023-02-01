@@ -220,7 +220,7 @@ export default function Inscription() {
 
                                         <CardFooter>
                                             <Button className="btn-round" color="primary" size="lg"
-                                                    onClick={(e) => e.preventDefault()}>
+                                                    onClick={() => inscription()}>
                                                 S'inscrire
                                             </Button>
                                         </CardFooter>

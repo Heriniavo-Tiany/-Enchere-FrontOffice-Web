@@ -80,7 +80,7 @@ export default function IndexNavbar() {
                 <div className="navbar-translate">
                     <NavbarBrand to="/" tag={Link} id="navbar-brand">
                         <span>Enchère• </span>
-                        ETU 1679, 1509, 1479, 1080
+                        ETU 1679, 1509, 1479
                     </NavbarBrand>
                     <UncontrolledTooltip placement="bottom" target="navbar-brand">
                         SAMPILAHY Heriniavo Tiany

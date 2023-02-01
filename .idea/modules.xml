@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../../../Informa-Tiako/Zah@Geek/Hackaton ZahaGeek/.idea/Hackaton ZahaGeek.iml" filepath="$PROJECT_DIR$/../../../../../Informa-Tiako/Zah@Geek/Hackaton ZahaGeek/.idea/Hackaton ZahaGeek.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../enchere-back-office/.idea/enchere-back-office.iml" filepath="$PROJECT_DIR$/../../enchere-back-office/.idea/enchere-back-office.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/enchereweb.iml" filepath="$PROJECT_DIR$/.idea/enchereweb.iml" />
     </modules>
   </component>
