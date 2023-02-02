@@ -17,13 +17,13 @@ import {
   Col
 } from "reactstrap";
 import axios from "axios";
-import Enchere from "Enchere";
+// import Enchere from "Enchere";
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 // import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
-import bigChartData from "variables/charts.js";
+import Enchere from "../../components/Enchere";
 
 export default function LandingPage() {
 
@@ -74,11 +74,6 @@ export default function LandingPage() {
           ))
         }
         <section className="section section-lg section-coins">
-          {/* <img
-            alt="..."
-            className="path"
-            src={require("assets/img/path3.png")}
-          /> */}
           <Container>
             <Row>
               <Col md="4">
