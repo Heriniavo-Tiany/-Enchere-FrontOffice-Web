@@ -79,8 +79,7 @@ export default function Login() {
 
 
         try {
-            console.log(email);
-            const response = await axios.post(`https://wsenchere.up.railway.app/Admin`, {}, { params });
+            const response = await axios.post(`https://wsenchere.up.railway.app/loginUtilisateurs`, {}, { params });
             if (response.status === 200) {
                 console.log(response.data);
                 const data = response.data;
@@ -90,8 +89,14 @@ export default function Login() {
                 }
                 if(response.data.code === 404){
                     history.push(`/login`);
-
                 }
+
+                if (response.data.length === 1) {
+                    history.push(`/rencherir`);
+                } else {
+                    history.push(`/login?e=0`);
+                }
+
             }else{
                 console.log("Loading");
             }

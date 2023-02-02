@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../../../Informa-Tiako/Zah@Geek/Hackaton ZahaGeek/.idea/Hackaton ZahaGeek.iml" filepath="$PROJECT_DIR$/../../../../../Informa-Tiako/Zah@Geek/Hackaton ZahaGeek/.idea/Hackaton ZahaGeek.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../enchere-back-office/.idea/enchere-back-office.iml" filepath="$PROJECT_DIR$/../../enchere-back-office/.idea/enchere-back-office.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../enchere-mobile/.idea/enchere-mobile.iml" filepath="$PROJECT_DIR$/../../enchere-mobile/.idea/enchere-mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/enchereweb.iml" filepath="$PROJECT_DIR$/.idea/enchereweb.iml" />
+      <module fileurl="file:///var/www/All templates/IONIC REACT/ionic-ecommerce-example-main/.idea/ionic-ecommerce-example-main.iml" filepath="/var/www/All templates/IONIC REACT/ionic-ecommerce-example-main/.idea/ionic-ecommerce-example-main.iml" />
+      <module fileurl="file:///var/www/All templates/IONIC REACT/ionic-react-login-main/.idea/ionic-react-login-main.iml" filepath="/var/www/All templates/IONIC REACT/ionic-react-login-main/.idea/ionic-react-login-main.iml" />
     </modules>
   </component>
 </project>

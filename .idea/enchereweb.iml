@@ -11,5 +11,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="enchere-back-office" />
     <orderEntry type="module" module-name="Hackaton ZahaGeek" />
+    <orderEntry type="module" module-name="enchere-mobile" />
+    <orderEntry type="module" module-name="ionic-ecommerce-example-main" />
+    <orderEntry type="module" module-name="ionic-react-login-main" />
   </component>
 </module>
