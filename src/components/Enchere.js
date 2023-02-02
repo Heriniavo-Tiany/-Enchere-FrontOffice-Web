@@ -1,5 +1,17 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
+import {
+    Button,
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Col,
+    Container,
+    ListGroup,
+    ListGroupItem,
+    Row
+} from "reactstrap";
 
 interface ContainerProps {
     idenchere: any,
@@ -33,17 +45,51 @@ const Enchere = ({
     };
 
     return (
-        <div>
-            <img
-                src={produit.image[0]}
-                alt=""
-            />
-            <h2>{produit.description}</h2>
-            <p>Début: {dateheure}</p>
-            <p>Durée: {duree} mn</p>
-            <p>Prix Minimal: {prix_minimal}</p>
-            <button onClick={() => handleClick(idproduit)}>Plus de détails</button>
-        </div>
+        <>
+
+            <section className="section section-lg section-coins">
+                <Container>
+                    <Row>
+                        <Col md="4">
+                            <Card className="card-coin card-plain">
+                                <CardHeader>
+                                    <img
+                                        alt="..."
+                                        className="img-center img-fluid"
+                                        src={produit.image[0]}
+                                    />
+                                </CardHeader>
+                                <CardBody>
+                                    <Row>
+                                        <Col className="text-center" md="12">
+                                            <h4 className="text-uppercase">{produit.description}</h4>
+                                            <span>Etat</span>
+                                            <hr className="line-primary" />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <ListGroup>
+                                            <ListGroupItem>Début: {dateheure}</ListGroupItem>
+                                            <ListGroupItem>Durée: {duree} mn</ListGroupItem>
+                                            <ListGroupItem>Prix Minimal: {prix_minimal}</ListGroupItem>
+                                        </ListGroup>
+                                    </Row>
+                                </CardBody>
+                                <CardFooter className="text-center">
+                                    <Button className="btn-simple" color="primary" onClick={() => handleClick(idproduit)}>
+                                        Renchérir
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </Col>
+
+
+                    </Row>
+                </Container>
+            </section>
+
+
+        </>
     );
 };
 
