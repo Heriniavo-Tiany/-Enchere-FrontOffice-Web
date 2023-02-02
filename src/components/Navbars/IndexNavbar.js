@@ -16,7 +16,9 @@
 
 */
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 // reactstrap components
 import {
     Button,
@@ -72,7 +74,32 @@ export default function IndexNavbar() {
     const scrollToDownload = () => {
         document
             .getElementById("download-section")
-            .scrollIntoView({behavior: "smooth"});
+            .scrollIntoView({ behavior: "smooth" });
+    };
+    const history = useHistory();
+    const listeEnchere = async () => {
+
+        try {
+
+            const response = await axios.post(`https://wsenchere.up.railway.app/PasFini`, {});
+            if (response.status === 200) {
+                console.log(response.data);
+                const data = response.data;
+
+                if (response.data.code === 202) {
+                    history.push(`/ListeEnchere`);
+                }
+                if (response.data.code === 404) {
+                    history.push(`/accueil`);
+
+                }
+            } else {
+                console.log("Loading");
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
     };
     return (
         <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
@@ -92,9 +119,9 @@ export default function IndexNavbar() {
                         className="navbar-toggler navbar-toggler"
                         onClick={toggleCollapse}
                     >
-                        <span className="navbar-toggler-bar bar1"/>
-                        <span className="navbar-toggler-bar bar2"/>
-                        <span className="navbar-toggler-bar bar3"/>
+                        <span className="navbar-toggler-bar bar1" />
+                        <span className="navbar-toggler-bar bar2" />
+                        <span className="navbar-toggler-bar bar3" />
                     </button>
                 </div>
                 <Collapse
@@ -117,7 +144,7 @@ export default function IndexNavbar() {
                                     className="navbar-toggler"
                                     onClick={toggleCollapse}
                                 >
-                                    <i className="tim-icons icon-simple-remove"/>
+                                    <i className="tim-icons icon-simple-remove" />
                                 </button>
                             </Col>
                         </Row>
@@ -132,25 +159,24 @@ export default function IndexNavbar() {
                                 nav
                                 onClick={(e) => e.preventDefault()}
                             >
-                                <i className="fa fa-cogs d-lg-none d-xl-none"/>
+                                <i className="fa fa-cogs d-lg-none d-xl-none" />
                                 Pages
                             </DropdownToggle>
                             <DropdownMenu className="dropdown-with-icons">
-                                <DropdownItem
-                                    href="https://demos.creative-tim.com/blk-design-system-react/#/documentation/overview">
-                                    <i className="tim-icons icon-paper"/>
-                                    Documentation
+                                <DropdownItem tag={Link} to="/ListeEnchere">
+                                    <i className="tim-icons icon-bullet-list-67" />
+                                    Liste des encheres
                                 </DropdownItem>
                                 <DropdownItem tag={Link} to="/register-page">
-                                    <i className="tim-icons icon-bullet-list-67"/>
+                                    <i className="tim-icons icon-bullet-list-67" />
                                     Register Page
                                 </DropdownItem>
                                 <DropdownItem tag={Link} to="/landing-page">
-                                    <i className="tim-icons icon-image-02"/>
+                                    <i className="tim-icons icon-image-02" />
                                     Landing Page
                                 </DropdownItem>
                                 <DropdownItem tag={Link} to="/profile-page">
-                                    <i className="tim-icons icon-single-02"/>
+                                    <i className="tim-icons icon-single-02" />
                                     Profile Page
                                 </DropdownItem>
                             </DropdownMenu>
@@ -161,7 +187,7 @@ export default function IndexNavbar() {
                                 color="default"
                                 onClick={scrollToDownload}
                             >
-                                <i className="tim-icons icon-cloud-download-93"/> Se déconnecter
+                                <i className="tim-icons icon-cloud-download-93" /> Se déconnecter
                             </Button>
                         </NavItem>
                     </Nav>
