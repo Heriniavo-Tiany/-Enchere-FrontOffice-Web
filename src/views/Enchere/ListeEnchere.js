@@ -1,8 +1,8 @@
 // import React from "react";
 import React, {useEffect, useState} from 'react';
 // react plugin used to create charts
-import {Line} from "react-chartjs-2";
 // reactstrap components
+import "./listeEnchere.css"
 import {
     Button,
     Card,
@@ -19,7 +19,6 @@ import {
 import axios from "axios";
 // import Enchere from "Enchere";
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 // import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
@@ -60,41 +59,35 @@ export default function LandingPage() {
                     </Row>
                 </Container>
 
-
-                        <Container>
-                            <Row>
-                {
-                    data.map(({
-                                  idenchere,
-                                  idcategorieenchere,
-                                  idutilisateur,
-                                  idproduit,
-                                  dateheure,
-                                  prix_minimal,
-                                  duree,
-                                  prixFinal,
-                                  idGagnant,
-                                  produit
-                              }) => (
-                                <Col md="12">
-                                    < Enchere
-                                        idenchere={idenchere}
-                                        idcategorieenchere={idcategorieenchere}
-                                        idutilisateur={idutilisateur}
-                                        idproduit={idproduit}
-                                        dateheure={dateheure}
-                                        prix_minimal={prix_minimal}
-                                        duree={duree}
-                                        prixFinal={prixFinal}
-                                        idGagnant={idGagnant}
-                                        produit={produit}
-                                    />
-                                </Col>
-                    ))
-                }
-                            </Row>
-                        </Container>
-
+                <div className="parent">
+                    {
+                        data.map(({
+                                      idenchere,
+                                      idcategorieenchere,
+                                      idutilisateur,
+                                      idproduit,
+                                      dateheure,
+                                      prix_minimal,
+                                      duree,
+                                      prixFinal,
+                                      idGagnant,
+                                      produit
+                                  }) => (
+                            < Enchere
+                                idenchere={idenchere}
+                                idcategorieenchere={idcategorieenchere}
+                                idutilisateur={idutilisateur}
+                                idproduit={idproduit}
+                                dateheure={dateheure}
+                                prix_minimal={prix_minimal}
+                                duree={duree}
+                                prixFinal={prixFinal}
+                                idGagnant={idGagnant}
+                                produit={produit}
+                            />
+                        ))
+                    }
+                </div>
                 <Footer/>
             </div>
         </>

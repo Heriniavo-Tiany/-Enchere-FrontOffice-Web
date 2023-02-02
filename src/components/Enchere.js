@@ -48,9 +48,9 @@ const Enchere = ({
         <>
 
             <section className="section section-lg section-coins">
-                <Container>
-                    <Row>
-                        <Col md="4">
+                {/*<Container>*/}
+                {/*    <Row>*/}
+                {/*        <Col md="4">*/}
                             <Card className="card-coin card-plain">
                                 <CardHeader>
                                     <img
@@ -81,11 +81,11 @@ const Enchere = ({
                                     </Button>
                                 </CardFooter>
                             </Card>
-                        </Col>
+                        {/*</Col>*/}
 
 
-                    </Row>
-                </Container>
+                {/*    </Row>*/}
+                {/*</Container>*/}
             </section>
 
 
