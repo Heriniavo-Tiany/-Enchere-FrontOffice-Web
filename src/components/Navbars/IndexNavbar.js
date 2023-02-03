@@ -76,31 +76,7 @@ export default function IndexNavbar() {
             .getElementById("download-section")
             .scrollIntoView({ behavior: "smooth" });
     };
-    const history = useHistory();
-    const listeEnchere = async () => {
-
-        try {
-
-            const response = await axios.post(`https://wsenchere.up.railway.app/PasFini`, {});
-            if (response.status === 200) {
-                console.log(response.data);
-                const data = response.data;
-
-                if (response.data.code === 202) {
-                    history.push(`/ListeEnchere`);
-                }
-                if (response.data.code === 404) {
-                    history.push(`/accueil`);
-
-                }
-            } else {
-                console.log("Loading");
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
+    
     return (
         <Navbar className={"fixed-top " + color} color-on-scroll="100" expand="lg">
             <Container>
