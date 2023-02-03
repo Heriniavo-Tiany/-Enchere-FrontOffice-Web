@@ -15,6 +15,8 @@ import Inscription from "./views/Enchere/Inscription";
 import Login from "./views/Enchere/Login";
 import Recharger from "./views/Enchere/Recharger";
 import ListeEnchere from "./views/Enchere/ListeEnchere";
+import EnchereDetail from "./views/Enchere/EnchereDetail";
+import LoginUser from "./views/Enchere/LoginUser";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -58,6 +60,14 @@ root.render(
       <Route
           path="/ListeEnchere"
           render={(props) => <ListeEnchere {...props} />}
+      />
+      <Route
+          path="/encheres/:id"
+          render={(props) => <EnchereDetail {...props} />}
+      />
+      <Route
+          path="/loginUser"
+          render={(props) => <LoginUser {...props} />}
       />
 
       <Redirect from="/" to="/accueil" />

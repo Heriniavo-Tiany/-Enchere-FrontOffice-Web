@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import {useHistory} from "react-router-dom";
 import {
@@ -40,9 +41,10 @@ const Enchere = ({
                  }: ContainerProps) => {
     const history = useHistory();
 
-    const handleClick = (idproduit) => {
+    function btnOnClick(idproduit: any) {
         history.push(`/encheres/${idproduit}`);
-    };
+        // console.log(`/encheres/${idenchere}`);
+    }
 
     return (
         <>
@@ -76,9 +78,8 @@ const Enchere = ({
                                     </Row>
                                 </CardBody>
                                 <CardFooter className="text-center">
-                                    <Button className="btn-simple" color="primary" onClick={() => handleClick(idproduit)}>
-                                        Renchérir
-                                    </Button>
+                                <button onClick={() => btnOnClick(idenchere)}>rencherir</button>
+                                       
                                 </CardFooter>
                             </Card>
                         {/*</Col>*/}
