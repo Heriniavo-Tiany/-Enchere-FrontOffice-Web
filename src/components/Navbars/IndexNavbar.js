@@ -165,19 +165,23 @@ export default function IndexNavbar() {
                             <DropdownMenu className="dropdown-with-icons">
                                 <DropdownItem tag={Link} to="/ListeEnchere">
                                     <i className="tim-icons icon-bullet-list-67" />
-                                    Liste des encheres
+                                    Liste des enchères
                                 </DropdownItem>
-                                <DropdownItem tag={Link} to="/register-page">
+                                <DropdownItem tag={Link} to="/inscription">
                                     <i className="tim-icons icon-bullet-list-67" />
-                                    Register Page
+                                    inscription
                                 </DropdownItem>
-                                <DropdownItem tag={Link} to="/landing-page">
+                                <DropdownItem tag={Link} to="/login">
                                     <i className="tim-icons icon-image-02" />
-                                    Landing Page
+                                    Login
                                 </DropdownItem>
-                                <DropdownItem tag={Link} to="/profile-page">
+                                <DropdownItem tag={Link} to="/recharger">
                                     <i className="tim-icons icon-single-02" />
-                                    Profile Page
+                                    recharger
+                                </DropdownItem>
+                                <DropdownItem tag={Link} to="/loginUser">
+                                    <i className="tim-icons icon-single-02" />
+                                    login User
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>

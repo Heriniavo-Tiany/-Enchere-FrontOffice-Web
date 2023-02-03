@@ -51,6 +51,7 @@ import {
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
+import IndexNavbar from "../../components/Navbars/IndexNavbar";
 
 
 export default function ProfilePage() {
@@ -129,7 +130,7 @@ export default function ProfilePage() {
   }, []);
   return (
     <>
-      <ExamplesNavbar />
+      <IndexNavbar />
       <div className="wrapper">
 
 

@@ -18,9 +18,13 @@
 import React from "react";
 
 // reactstrap components
-import { Container } from "reactstrap";
+import {Button, Container} from "reactstrap";
+import {useHistory} from "react-router-dom";
 
 export default function PageHeader() {
+
+    const history = useHistory();
+
   return (
     <div className="page-header header-filter">
       <div className="squares square1" />
@@ -36,6 +40,14 @@ export default function PageHeader() {
           <h3 className="d-none d-sm-block">
               Enchérissez sur des objets rares et exclusifs sur notre plateforme de vente aux enchères en ligne.
           </h3>
+
+            <Button
+                className="btn-round" color="primary" type="button"
+                onClick={() => history.push("/ListeEnchere") }
+            >
+                Liste des Enchères
+            </Button>
+
         </div>
       </Container>
     </div>
