@@ -51,62 +51,64 @@ import {
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
-import IndexNavbar from "../../components/Navbars/IndexNavbar";
 
 
+// var mess = "valider";
 export default function ProfilePage() {
-
+  var mess = document.getElementById('mess');
   const [montant, setMontant] = useState('');
+  const [iduser, setUser] = useState('');
   // const [id, setId] = React.useState(null)
   const { id } = useParams()
-
-  const btnOnClick = () => {
-    // const id = Enchere.params.id;
-    // // use id to fetch data and render the page
-    // // return <div>EncherePage with id: {id}</div>;
+  const btnOnClick = async () => {
     console.log(id);
-  };
+    if (sessionStorage.getItem("id") === undefined) {
+      console.log("connecte toi d'abord")
+    } else {
+      setUser(sessionStorage.getItem("id"))
 
-  const login = async () => {
+      const params = {
+        prix: montant,
+        iduser: iduser,
+        idenchere: id
+      };
+      try {
+        const response = await axios.post(`https://wsenchere.up.railway.app/NewRenchere`, {}, { params });
+        if (response.status === 200) {
+          console.log(response.data);
+          const data = response.data;
+          mess.innerHTML = response.data['msg'];
 
-    const params = {
-      montant: montant
+          // console.log(mess);
+          if (response.data.code === 202) {
+            history.push(`/encheres`);
+          }
 
-    };
+          if (response.data.length === 1) {
+            history.push(`/rencherir`);
+          } else {
+            if (response.data === "Mise insérer") {
+              mess.innerHTML = response.data;
+            }
+            else{
+              mess.innerHTML=response.data['msg'];
+            }
+            history.push(`/encheres/${id}`);
+          }
 
-    // console.log(idenchere);
+        } else {
+          mess.innerHTML = "loading"
+        }
+      }
+      catch (error) {
+        console.log(error);
+        console.log("fini");
+      }
 
-    // try {
-    //   const response = await axios.post(`https://wsenchere.up.railway.app/`, {}, { params });
-    //   if (response.status === 200) {
-    //     console.log(response.data);
-    //     const data = response.data;
-
-    //     if (response.data.code === 202) {
-    //       history.push(`/encheres`);
-    //     }
-    //     if (response.data.code === 404) {
-    //       history.push(`/login`);
-    //     }
-
-    //     if (response.data.length === 1) {
-    //       history.push(`/rencherir`);
-    //     } else {
-    //       history.push(`/login?e=0`);
-    //     }
-
-    //   } else {
-    //     console.log("Loading");
-    //   }
-    // }
-    // catch (error) {
-    //   console.log(error);
-    // }
+    }
   };
 
   let ps = null;
-
-
 
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -130,7 +132,7 @@ export default function ProfilePage() {
   }, []);
   return (
     <>
-      <IndexNavbar />
+      <ExamplesNavbar />
       <div className="wrapper">
 
 
@@ -141,7 +143,7 @@ export default function ProfilePage() {
             <Col md="6">
               <Card className="card-plain">
                 <CardHeader>
-                  <h1 className="profile-title text-left">Rencherir</h1>
+                  <h1 className="profile-title text-left">rencherir</h1>
                   <h5 className="text-on-back">0</h5>
                 </CardHeader>
                 <CardBody>
@@ -149,11 +151,11 @@ export default function ProfilePage() {
 
                     <Col md="6">
                       <FormGroup>
-                        <label>Montant de la surenchere</label>
+                        <label>montant de la surencheres</label>
                         <Input defaultValue="Mike" type="number" onChange={(e) => setMontant(e.target.value)} />
                       </FormGroup>
                     </Col>
-
+                    <p id="mess"> </p>
                     <Button
                       className="btn-round float-right"
                       color="primary"
@@ -161,8 +163,9 @@ export default function ProfilePage() {
                       id="tooltip341148792"
                       type="button" onClick={() => btnOnClick()}
                     >
-                      Valider
+                      Send text
                     </Button>
+
                   </Form>
                 </CardBody>
               </Card>
