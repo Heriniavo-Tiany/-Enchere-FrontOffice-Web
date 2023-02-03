@@ -185,9 +185,9 @@ export default function IndexNavbar() {
                             <Button
                                 className="nav-link d-none d-lg-block"
                                 color="default"
-                                onClick={scrollToDownload}
+                                tag={Link} to="/login"
                             >
-                                <i className="tim-icons icon-cloud-download-93" /> Se déconnecter
+                                <i className="tim-icons icon-cloud-download-93" /> Se connecter
                             </Button>
                         </NavItem>
                     </Nav>

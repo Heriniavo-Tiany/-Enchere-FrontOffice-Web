@@ -74,14 +74,15 @@ export default function Login() {
 
         const params = {
             email: email,
-            mdp: pwd,
+            mdp: pwd
         };
 
 
         try {
             console.log(email);
-            const response = await axios.post(`https://wsenchere.up.railway.app/Admin`, {}, { params });
+            const response = await axios.post(`https://wsenchere.up.railway.app/User`, {}, { params });
             if (response.status === 200) {
+                console.log('response.data');
                 console.log(response.data);
                 const data = response.data;
 
