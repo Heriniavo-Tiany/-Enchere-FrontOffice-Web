@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {Button, Col, Container, FormGroup, Input, Row} from "reactstrap";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
-import {API_URL} from "../../config";
+import {API_URL} from "config.js";
 
 function Recharger() {
 
@@ -19,20 +19,26 @@ function Recharger() {
 
 
     const [compte, setCompte] = useState("");
-
+    
+    var message = document.getElementById('message');
     const recharger = async () => {
-        const params = {
-            compte: compte
-        };
-
-        try {
-            const response = await axios.post(`${API_URL}/insertrechargements`, {}, {params});
-            if (response.status === 200) {
-                console.log(response.data);
-                history.push(`/profil`);
+        if (sessionStorage.getItem("id")===undefined) {
+            message.innerHTML = "oups, connectez vous et revennez reessayer";
+        } else {
+            const params = {
+                compte: compte,
+                idutilisateur: sessionStorage.getItem("id")
+            };
+    
+            try {
+                const response = await axios.post(`${API_URL}/insertrechargements`, {}, {params});
+                if (response.status === 200) {
+                    console.log(response.data);
+                    history.push(`/profil`);
+                }
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
         }
     };
 
@@ -58,7 +64,7 @@ function Recharger() {
                             </FormGroup>
                         </Col>
                     </Row>
-
+                    <p id="message"> </p>
                     <Button
                         className="btn-round" color="primary" type="button"
                         onClick={() => recharger()}
