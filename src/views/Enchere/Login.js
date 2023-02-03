@@ -69,33 +69,32 @@ export default function Login() {
             "deg)"
         );
     };
-
     const login = async () => {
-
+        
         const params = {
-            email: email,
-            mdp: pwd,
+            email: "koto@gmail.com",
+            mdp: "koto",
         };
-
+        
 
         try {
             console.log(email);
             const response = await axios.post(`https://wsenchere.up.railway.app/Admin`, {}, { params });
             if (response.status === 200) {
-                console.log(response.data);
-                const data = response.data;
+                    console.log(response.data);
+                    const data = response.data;
 
-                if(response.data.code === 202){
-                    history.push(`/encheres`);
-                }
-                if(response.data.code === 404){
-                    history.push(`/login`);
+                        if(data === 202){
+                            history.push(`/encheres`);
+                        }
+                        if(data === 404){
+                            history.push(`/login`);
 
+                        }
+                }else{
+                    console.log("Loading");
                 }
-            }else{
-                console.log("Loading");
             }
-        }
         catch (error) {
             console.log(error);
         }

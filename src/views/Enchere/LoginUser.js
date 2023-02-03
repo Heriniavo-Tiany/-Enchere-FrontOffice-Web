@@ -24,23 +24,20 @@ import {
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
+import {useHistory} from 'react-router';
 import axios from "axios";
-import {API_URL} from "../../config";
+
 
 export default function Login() {
     const [squares1to6, setSquares1to6] = React.useState("");
     const [squares7and8, setSquares7and8] = React.useState("");
-    const [fullNameFocus, setFullNameFocus] = React.useState(false);
     const [emailFocus, setEmailFocus] = React.useState(false);
     const [passwordFocus, setPasswordFocus] = React.useState(false);
-    const [contactFocus, setContactFocus] = React.useState(false);
 
-    const [nom, setNom] = useState('')
     const [email, setEmail] = useState('')
     const [pwd, setPwd] = useState('')
-    const [contact, setContact] = useState('')
-    const history = useHistory();
+    // const history = useHistory();
 
     React.useEffect(() => {
         document.body.classList.toggle("register-page");
@@ -69,12 +66,13 @@ export default function Login() {
             "deg)"
         );
     };
+    const history = useHistory();
 
     const login = async () => {
 
         const params = {
             email: email,
-            mdp: pwd
+            mdp: pwd,
         };
 
 
@@ -82,18 +80,24 @@ export default function Login() {
             console.log(email);
             const response = await axios.post(`https://wsenchere.up.railway.app/User`, {}, { params });
             if (response.status === 200) {
-                console.log('response.data');
                 console.log(response.data);
-                const data = response.data;
+                // const data = response.data;
 
-                if(response.data.code === 202){
-                    history.push(`/encheres`);
+                if (response.data.code === 202) {
+                    history.push(`/liste`);
                 }
-                if(response.data.code === 404){
+                if (response.data.code === 404) {
                     history.push(`/login`);
-
                 }
-            }else{
+
+                if (response.data.length === 1) {
+                    sessionStorage.setItem("id", response.data[0].id)
+                    history.push(`/rencherir`);
+                } else {
+                    history.push(`/login?e=0`);
+                }
+
+            } else {
                 console.log("Loading");
             }
         }
@@ -101,7 +105,7 @@ export default function Login() {
             console.log(error);
         }
     };
-
+    
     return (
         <>
             <ExamplesNavbar/>
