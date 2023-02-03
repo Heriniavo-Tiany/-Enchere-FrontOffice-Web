@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/blk-design-system-react/static/css/main.17a57e75.css",
-    "main.js": "/blk-design-system-react/static/js/main.cd51bc87.js",
+    "main.js": "/blk-design-system-react/static/js/main.eb328001.js",
     "static/media/square-purple-1.png": "/blk-design-system-react/static/media/square-purple-1.ed3a5e3801e35e68ab23.png",
     "static/media/square4.png": "/blk-design-system-react/static/media/square4.b0072563cab16ef45d81.png",
     "static/media/square1.png": "/blk-design-system-react/static/media/square1.082ea17aaf44aed9868a.png",
@@ -41,10 +41,10 @@
     "static/media/github.svg": "/blk-design-system-react/static/media/github.6c95555646a0ecabf549179c97bf0e7d.svg",
     "index.html": "/blk-design-system-react/index.html",
     "main.17a57e75.css.map": "/blk-design-system-react/static/css/main.17a57e75.css.map",
-    "main.cd51bc87.js.map": "/blk-design-system-react/static/js/main.cd51bc87.js.map"
+    "main.eb328001.js.map": "/blk-design-system-react/static/js/main.eb328001.js.map"
   },
   "entrypoints": [
     "static/css/main.17a57e75.css",
-    "static/js/main.cd51bc87.js"
+    "static/js/main.eb328001.js"
   ]
 }
