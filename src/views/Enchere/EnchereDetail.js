@@ -141,7 +141,7 @@ export default function ProfilePage() {
             <Col md="6">
               <Card className="card-plain">
                 <CardHeader>
-                  <h1 className="profile-title text-left">rencherire</h1>
+                  <h1 className="profile-title text-left">Rencherir</h1>
                   <h5 className="text-on-back">0</h5>
                 </CardHeader>
                 <CardBody>
@@ -149,7 +149,7 @@ export default function ProfilePage() {
 
                     <Col md="6">
                       <FormGroup>
-                        <label>montant de la surencheres</label>
+                        <label>Montant de la surenchere</label>
                         <Input defaultValue="Mike" type="number" onChange={(e) => setMontant(e.target.value)} />
                       </FormGroup>
                     </Col>
@@ -161,15 +161,8 @@ export default function ProfilePage() {
                       id="tooltip341148792"
                       type="button" onClick={() => btnOnClick()}
                     >
-                      Send text
+                      Valider
                     </Button>
-                    <UncontrolledTooltip
-                      delay={0}
-                      placement="right"
-                      target="tooltip341148792"
-                    >
-                      Can't wait for your message
-                    </UncontrolledTooltip>
                   </Form>
                 </CardBody>
               </Card>
